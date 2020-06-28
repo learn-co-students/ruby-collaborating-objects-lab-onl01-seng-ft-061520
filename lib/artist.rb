@@ -27,16 +27,18 @@ class Artist
     end
 
     def self.find_or_create_by_name(artist_name)
-
         # Create artist instance that has that name if it doesn't exist
-        if find_artist(artist_name) == []
+        if find_artist(artist_name) == nil
             new_artist = self.new(artist_name)
             new_artist           
         else           
             # Find the artist instance that has that name -or- 
             find_artist(artist_name)
         end
+    end
 
+    def print_songs
+        songs.map{|song| puts song.name}
     end
 
 
