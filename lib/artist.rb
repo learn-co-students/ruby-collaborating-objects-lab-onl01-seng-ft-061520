@@ -8,18 +8,23 @@ class Artist
     @name = name 
   end 
   
-  # def self.all 
-  #   @@all 
-  # end 
+  def songs
+    Artist.all.select do |song|
+      artist.song == self
+    end 
+  end
   
-  # def add_song(song)
-  #   @songs << song
-  # end 
+  def self.all 
+    @@all 
+  end 
   
-  # def self.find_or_create_by_name
-  # end 
+  def add_song(song)
+    song.artist = self 
+  end 
   
-  # def print_songs
-    
+  def self.find_or_create_by_name
+    singer = Song.new(song_name)
+    add_song(singer)
+  end 
   
 end 
