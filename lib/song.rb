@@ -6,6 +6,7 @@ class Song
   
   def initialize(name)
     @name = name 
+    @@all << self
   end 
   
   def self.all 
@@ -13,16 +14,18 @@ class Song
   end 
   
   def self.new_by_filename
-    song_name = file.split(" ")[1]
-    artist = file.split(" ")[0]
-    song = self.new(song_name)
-    song.artist_name = artist 
-    song
-  end 
+    mp3_deleted = file.split(/.mp3/).join(" ")
+    names_and_genre = mp3_deleted.split(/ - /)
+    artist_name = names_and_genre[0]
+    song_name = names_and_genre[1]
+    new_song = self.new(song_name)
+    new_song.artist = Artist.find_or_create_by_name(artist_name)
+    new_song
+    
+  end
   
   def artist_name
     self.artist = Artist.find_or_create_by_name(name)
-    self.artist.add_song(self)
   end 
   
 end 
