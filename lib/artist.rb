@@ -55,5 +55,8 @@ class Artist
         puts @songs.collect{|songs| songs.name}
     end
 
+
+    
+
    
 end
