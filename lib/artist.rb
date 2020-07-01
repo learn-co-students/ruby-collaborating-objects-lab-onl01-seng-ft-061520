@@ -1,19 +1,19 @@
 class Artist
 
-  attr_accessor :name, :songs
+  attr_accessor :name, :song
 
-  @@all = [] 
+  @@all = []
 
   def initialize(name)
     @name = name
     @songs = []
     save
   end
-  
+
   def save
     @@all << self
   end
-  
+
   def self.all
     @@all
   end
@@ -35,7 +35,7 @@ class Artist
       artist.name == name
     end
   end
-  
+
   def print_songs()
     puts @songs.collect {|x| x.name}
   end
