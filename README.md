@@ -1,5 +1,5 @@
 # Ruby Collaborating Objects Lab
-
+"Hello"
 ## Objective
 
 - Gain a deeper understanding of object relations.
